@@ -1,2 +1,1 @@
-# waiter-app-mobile
-Waiter App Mobile
+# Waiter App Mobile
