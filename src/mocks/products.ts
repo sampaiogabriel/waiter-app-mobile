@@ -32,7 +32,7 @@ export const products = [
     _id: "6372e276a381106c0f854cb3",
     name: "Coca cola",
     description: "Coca cola lata geladinha topzera",
-    imagePath: "1668473022155-quatro-queijos.png",
+    imagePath: "123131231318238183-coca-cola.png",
     price: 7,
     ingredients: [],
   },
