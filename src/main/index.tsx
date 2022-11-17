@@ -14,6 +14,11 @@ import { useState } from "react";
 
 export function Main() {
   const [isTableModalVisible, setIsTableModalVisible] = useState(false);
+  const [selectedTable, setSelectedTable] = useState("");
+
+  function handleSaveTable(table: string) {
+    setSelectedTable(table);
+  }
 
   return (
     <>
@@ -28,19 +33,22 @@ export function Main() {
       </Container>
       <Footer>
         <FooterContainer>
-          <Button
-            onPress={() => {
-              setIsTableModalVisible(true);
-            }}
-          >
-            Novo pedido
-          </Button>
+          {!selectedTable && (
+            <Button
+              onPress={() => {
+                setIsTableModalVisible(true);
+              }}
+            >
+              Novo pedido
+            </Button>
+          )}
         </FooterContainer>
       </Footer>
 
       <TableModal
         visible={isTableModalVisible}
         onClose={() => setIsTableModalVisible(false)}
+        onSave={handleSaveTable}
       />
     </>
   );

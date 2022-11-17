@@ -8,10 +8,16 @@ import { Overlay, ModalBody, Header, Form, Input } from "./styles";
 interface TableModalProps {
   visible: boolean;
   onClose: () => void;
+  onSave: (table: string) => void;
 }
 
-export function TableModal({ visible, onClose }: TableModalProps) {
+export function TableModal({ visible, onClose, onSave }: TableModalProps) {
   const [table, setTable] = useState("");
+
+  function handleSave() {
+    onSave(table);
+    onClose();
+  }
 
   return (
     <Modal visible={visible} transparent animationType="fade">
@@ -30,10 +36,7 @@ export function TableModal({ visible, onClose }: TableModalProps) {
               keyboardType="number-pad"
               onChangeText={setTable}
             />
-            <Button
-              onPress={() => alert("click")}
-              disabled={table.length === 0}
-            >
+            <Button onPress={() => handleSave()} disabled={table.length === 0}>
               Salvar
             </Button>
           </Form>
