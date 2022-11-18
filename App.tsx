@@ -2,6 +2,7 @@ import { useFonts } from "expo-font";
 import { Main } from "./src/Main";
 import "intl";
 import "intl/locale-data/jsonp/pt-BR";
+import ExpoStatusBar from "expo-status-bar/build/ExpoStatusBar";
 
 export default function App() {
   const [isFontsLoaded] = useFonts({
@@ -14,5 +15,10 @@ export default function App() {
     return null;
   }
 
-  return <Main />;
+  return (
+    <>
+      <ExpoStatusBar style="auto" />
+      <Main />
+    </>
+  );
 }
